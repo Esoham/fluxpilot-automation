@@ -1,0 +1,5 @@
+{
+  "allowed_stages": ["submitted", "approved", "funded", "declined"],
+  "required_columns": ["application_id", "borrower_key", "email", "stage", "agent_id", "updated_at"],
+  "stale_after_days": 14
+}
