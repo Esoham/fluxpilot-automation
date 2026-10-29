@@ -1,0 +1,7 @@
+application_id,borrower_key,email,stage,agent_id,updated_at
+K001,C101,A@example.test,approved,AG1,2026-09-10
+K002,C102,b@example.test,submitted,AG2,2026-09-10
+K003,C102,B@EXAMPLE.TEST,submitted,AG2,2026-09-09
+K004,C103,,funded,AG1,2026-09-11
+K005,C104,d@example.test,approved,,2026-09-10
+K006,C105,e@example.test,submitted,AG3,2026-09-08
