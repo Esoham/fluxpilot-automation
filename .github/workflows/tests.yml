@@ -1,4 +1,4 @@
-name: Python tests
+name: Verify portfolio
 on:
   push:
   pull_request:
@@ -10,5 +10,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run unit tests
+      - name: Run all unit tests
         run: python -m unittest discover -s tests -v
+      - name: Run original pipeline
+        run: python pipeline.py --output original-report.json
+      - name: Run enhanced automation
+        run: python automation.py --as-of 2026-09-15 --output-dir ci-output
+      - name: Verify generated reports
+        run: |
+          python - <<'PY'
+          import json,csv
+          from pathlib import Path
+          assert json.loads(Path('original-report.json').read_text())['records']==6
+          report=json.loads(Path('ci-output/summary.json').read_text())
+          assert report['processed_records']==6
+          with Path('ci-output/exceptions.csv',newline='') as f:
+              assert len(list(csv.DictReader(f))) >= 2
+          print('FluxPilot smoke checks passed')
+          PY
