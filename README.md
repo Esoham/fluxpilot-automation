@@ -2,6 +2,8 @@
 
 An **independent portfolio project** demonstrating configurable CSV validation, cross-feed exception monitoring, automated reporting, and unit tests using fictional loan operations data.
 
+**For a quick review:** Read the [process map and acceptance criteria](docs/PROCESS_MAP.md), inspect the [automation implementation](automation.py) and [unit tests](tests/), then run the two commands below. This demonstrates practical automation, rule-based exception handling, testability, and clear human-review boundaries.
+
 ## Business problem
 Manual spreadsheet reviews are inconsistent and difficult to audit. FluxPilot standardizes checks while leaving correction decisions with a human reviewer.
 
